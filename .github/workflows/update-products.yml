@@ -1,0 +1,42 @@
+name: Update Products Daily
+
+on:
+  schedule:
+    # Exécution tous les jours à 6h UTC (7h en Algérie en hiver)
+    - cron: '0 6 * * *'
+  workflow_dispatch:   # Permet un déclenchement manuel
+
+permissions:
+  contents: write      # Nécessaire pour pousser les modifications
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests feedparser
+
+      - name: Run update script
+        env:
+          TEMU_AFFILIATE_ID: ${{ secrets.TEMU_AFFILIATE_ID }}
+          ALI_TRACKING_ID: ${{ secrets.ALI_TRACKING_ID }}
+        run: python update_products.py
+
+      - name: Commit and push if changes
+        run: |
+          git config user.name "PetDZ Bot"
+          git config user.email "contact.petdz@gmail.com"
+          git add products.json
+          # Vérifie s'il y a des modifications avant de commiter
+          git diff --staged --quiet || git commit -m "Auto-update products $(date '+%Y-%m-%d')"
+          git push
