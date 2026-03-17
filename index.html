@@ -1,0 +1,930 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>PetDZ — Promos Animaux Algérie</title>
+<!-- META SEO -->
+<meta name="description" content="PetDZ - Vente en ligne de produits pour animaux, procuration, petites annonces et abonnement premium en Algérie. Tout pour chiens et chats.">
+<meta name="keywords" content="animaux, chiens, chats, Algérie, vente en ligne, procuration, petites annonces, accessoires">
+<meta name="author" content="PetDZ">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* TOUS LES STYLES EXISTANTS (inchangés) ... */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#faf8f5;--card:#fff;--border:#ede9e3;--accent:#e85d04;--flash:#d00000;--green:#2d6a4f;--text:#1a1a1a;--muted:#8a8a8a;--premium:#7b2d8b;--warm:#fff8f0}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;cursor:pointer;color:var(--text);letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2px}
+.nl{padding:7px 14px;border-radius:8px;border:none;background:transparent;color:var(--muted);font-size:.82rem;font-family:'Outfit',sans-serif;font-weight:500;cursor:pointer;transition:all .2s}
+.nl:hover{color:var(--text);background:#f0ece6}
+.nl.active{color:var(--accent);background:#fff0e8}
+.nl.pnav{color:var(--premium)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-badge{background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;padding:5px 13px;border-radius:999px}
+
+/* PAGES */
+.page{display:none}.page.active{display:block}
+
+/* TICKER */
+.ticker{background:var(--accent);color:#fff;padding:10px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:tick 32s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker-inner span{font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;padding:0 28px;opacity:.9}
+.ticker-inner span.dot{padding:0 8px;opacity:.5}
+
+/* HERO */
+.hero{padding:56px 5vw 48px;background:var(--warm);border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-left .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.hero-left .tag::before{content:'';width:24px;height:2px;background:var(--accent);display:inline-block}
+.hero-left h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:16px}
+.hero-left h1 em{font-style:normal;color:var(--accent);display:block}
+.hero-left p{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:400px;margin-bottom:28px}
+.hero-stats{display:flex;gap:32px}
+.stat{border-left:3px solid var(--accent);padding-left:14px}
+.stat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--text);line-height:1}
+.stat-l{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:3px}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-img{border-radius:16px;overflow:hidden;aspect-ratio:1/1;position:relative}
+.hero-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.hero-img:hover img{transform:scale(1.06)}
+.hero-img:first-child{grid-column:1/-1;aspect-ratio:2/1}
+.hero-img .hi-label{position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);color:#fff;font-size:.68rem;font-weight:600;padding:5px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.08em}
+
+/* SERVICES BAND */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.svc{background:var(--bg);padding:20px 24px;cursor:pointer;transition:background .2s;display:flex;align-items:center;gap:16px}
+.svc:hover{background:#fff0e8}
+.svc-icon{width:44px;height:44px;background:var(--warm);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;border:1px solid var(--border)}
+.svc-info .svc-t{font-size:.88rem;font-weight:600;margin-bottom:2px}
+.svc-info .svc-d{font-size:.72rem;color:var(--muted);line-height:1.4}
+.svc.prem .svc-t{color:var(--premium)}
+
+/* SOURCES */
+.sources{padding:16px 5vw;display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--border);background:#fff}
+.src-lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);flex-shrink:0}
+.src-chips{display:flex;gap:8px;flex-wrap:wrap}
+.src-chip{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:.72rem;font-weight:600}
+.src-dot{width:6px;height:6px;border-radius:50%}
+
+/* SECTIONS */
+.section{padding:44px 5vw}
+.sec-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px}
+.sec-t{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;letter-spacing:-.02em}
+.live-pill{display:inline-flex;align-items:center;gap:6px;background:#fff0f0;border:1px solid #ffcdd2;color:var(--flash);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:4px 10px;border-radius:999px;margin-left:12px}
+.pulse{width:5px;height:5px;background:var(--flash);border-radius:50%;animation:pu 1.4s ease infinite}
+@keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
+.sec-link{font-size:.78rem;color:var(--accent);font-weight:600;cursor:pointer;border-bottom:1px solid var(--accent)}
+
+/* PRODUCT GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;cursor:pointer;transition:all .28s;position:relative}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.1);border-color:#ddd}
+.card-img{width:100%;aspect-ratio:4/3;overflow:hidden;position:relative;background:#f5f2ee}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .card-img img{transform:scale(1.07)}
+.badge{position:absolute;top:12px;left:12px;z-index:2;font-size:.65rem;font-weight:700;text-transform:uppercase;padding:4px 10px;border-radius:999px;letter-spacing:.06em}
+.badge-f{background:var(--flash);color:#fff}
+.badge-s{background:var(--green);color:#fff}
+.abadge{position:absolute;top:12px;right:12px;z-index:2;font-size:1.1rem}
+.platb{position:absolute;bottom:10px;right:10px;z-index:2;background:rgba(255,255,255,.9);backdrop-filter:blur(4px);border-radius:6px;padding:3px 8px;font-size:.6rem;font-weight:700;text-transform:uppercase;color:var(--text)}
+.cd{position:absolute;bottom:10px;left:10px;right:80px;z-index:2;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);border-radius:7px;padding:5px 9px;display:flex;align-items:center;gap:5px}
+.cd-l{font-size:.58rem;text-transform:uppercase;color:#ff9090;font-weight:600}
+.cd-t{font-size:.82rem;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+.card-body{padding:16px}
+.card-src{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;font-weight:500}
+.card-name{font-size:.92rem;font-weight:600;line-height:1.35;margin-bottom:10px;color:var(--text)}
+.card-price{display:flex;align-items:center;gap:8px;margin-bottom:13px}
+.p-new{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--accent)}
+.p-old{font-size:.78rem;color:var(--muted);text-decoration:line-through}
+.p-pct{font-size:.7rem;font-weight:700;color:#fff;background:var(--flash);padding:2px 7px;border-radius:5px;margin-left:auto}
+.cta{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:all .2s}
+.cta:hover{background:#c94d00;transform:translateY(-1px)}
+
+.divider{height:1px;background:var(--border);margin:0 5vw}
+.cat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.cat{padding:7px 16px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--muted);font-size:.76rem;cursor:pointer;transition:all .2s;font-weight:500}
+.cat.active,.cat:hover{border-color:var(--accent);color:var(--accent);background:#fff0e8}
+.filters{display:flex;gap:6px}
+.fbtn{padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--muted);font-size:.76rem;cursor:pointer;transition:all .2s;font-weight:500}
+.fbtn.active,.fbtn:hover{border-color:var(--accent);color:var(--accent);background:#fff0e8}
+
+/* MODALS */
+.ov{display:none;position:fixed;inset:0;z-index:200;background:rgba(10,5,0,.7);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.ov.open{display:flex}
+.modal{background:#fff;border-radius:22px;max-width:500px;width:100%;overflow:hidden;animation:mIn .25s ease;margin:auto;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+@keyframes mIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.m-img{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;background:#f5f2ee}
+.m-img img{width:100%;height:100%;object-fit:cover}
+.m-body{padding:22px}
+.m-src{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;font-weight:500}
+.m-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;line-height:1.2;margin-bottom:14px}
+.m-price{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.mp-new{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--accent)}
+.mp-old{font-size:.95rem;color:var(--muted);text-decoration:line-through}
+.mp-pct{font-size:.75rem;font-weight:700;color:#fff;background:var(--flash);padding:3px 9px;border-radius:6px;margin-left:auto}
+.m-desc{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:20px}
+.m-acts{display:flex;gap:8px}
+.btn-p{flex:1;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:11px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all .2s}
+.btn-p:hover{background:#c94d00}
+.btn-g{padding:13px 18px;background:transparent;border:1.5px solid var(--border);color:var(--muted);border-radius:11px;font-size:.88rem;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif}
+.btn-g:hover{border-color:var(--text);color:var(--text)}
+
+/* CO MODAL */
+.co-m{background:#fff;border-radius:22px;max-width:430px;width:100%;padding:26px;animation:mIn .25s ease;margin:auto;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+.co-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.co-ht{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700}
+.co-pt{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--accent);margin-bottom:16px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;font-weight:500}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;background:var(--bg);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;resize:vertical}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);background:#fff}
+.pay-err{display:none;background:#fff0f0;border:1px solid #ffcdd2;color:var(--flash);padding:9px 13px;border-radius:9px;font-size:.78rem;margin-bottom:12px}
+.co-note{margin-top:10px;text-align:center;font-size:.63rem;color:var(--muted);line-height:1.6}
+
+/* PROCURATION */
+.ph{padding:52px 5vw 36px;border-bottom:1px solid var(--border);background:var(--warm)}
+.ph .tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:12px;font-weight:600;display:flex;align-items:center;gap:8px}
+.ph .tag::before{content:'';width:20px;height:2px;background:var(--accent);display:inline-block}
+.ph h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:14px}
+.ph p{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:520px}
+.how-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;padding:32px 5vw}
+.how-c{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.how-c::before{content:attr(data-n);position:absolute;top:-10px;right:14px;font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:var(--accent);opacity:.06;line-height:1}
+.how-t{font-size:.9rem;font-weight:600;margin-bottom:6px}
+.how-d{font-size:.78rem;color:var(--muted);line-height:1.55}
+.proc-wrap{padding:0 5vw 52px}
+.proc-f{background:#fff;border:1px solid var(--border);border-radius:20px;padding:30px;max-width:560px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.proc-ft{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:22px}
+.plat-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px}
+.plat-btn{padding:10px 6px;background:var(--bg);border:1.5px solid var(--border);border-radius:10px;text-align:center;cursor:pointer;transition:all .2s;font-size:.72rem;font-weight:600}
+.plat-btn:hover,.plat-btn.sel{border-color:var(--accent);color:var(--accent);background:#fff0e8}
+.comm-box{background:var(--warm);border:1.5px solid #ffdcb8;border-radius:12px;padding:16px;margin-bottom:16px;font-size:.8rem}
+.comm-total{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--accent);margin-top:6px}
+.eng-box{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:15px;margin-bottom:14px;font-size:.77rem;color:var(--muted);line-height:1.8}
+.eng-box strong{color:var(--text);display:block;margin-bottom:6px;font-size:.8rem;font-weight:600}
+.chk-row{display:flex;align-items:flex-start;gap:10px;margin-top:10px;cursor:pointer}
+.chk-row input[type=checkbox]{width:16px;height:16px;margin-top:2px;accent-color:var(--accent);flex-shrink:0}
+
+/* AJOUT : MESSAGE TEMPORAIRE PAIEMENT */
+.pay-warning{background:#fff3cd;border:1px solid #ffe69c;color:#856404;padding:15px;border-radius:10px;margin-bottom:20px;font-size:.85rem;display:flex;align-items:center;gap:10px}
+.pay-warning strong{color:#533f03}
+.contact-badge{background:var(--accent);color:#fff;padding:2px 10px;border-radius:20px;font-size:.7rem;font-weight:600;margin-left:5px;white-space:nowrap}
+
+/* AJOUT : FAQ */
+.faq-box{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:20px}
+.faq-q{font-weight:600;margin:12px 0 3px;font-size:.83rem;color:var(--text)}
+.faq-a{font-size:.77rem;color:var(--muted);margin-bottom:10px;padding-left:10px;border-left:2px solid var(--accent)}
+
+/* AJOUT : TÉMOIGNAGES */
+.testimonials{background:var(--warm);padding:40px 5vw;border-bottom:1px solid var(--border)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:20px}
+.testi-card{background:#fff;border-radius:16px;padding:20px;border:1px solid var(--border)}
+.testi-card p{font-style:italic;color:var(--muted);font-size:.85rem;line-height:1.6}
+.testi-author{display:flex;align-items:center;gap:8px;margin-top:14px}
+.testi-author span{font-weight:600;font-size:.8rem}
+.testi-author small{color:var(--muted);font-size:.7rem}
+
+/* AJOUT : MENTION SÉCURITÉ */
+.secu-note{margin-top:8px;font-size:.65rem;color:var(--muted);display:flex;align-items:center;gap:5px}
+.secu-note::before{content:'🔒';opacity:.8}
+
+/* AJOUT : CONSEIL ET CITATION DU JOUR */
+.daily-tips{background:var(--warm);padding:30px 5vw;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tip-card{background:#fff;border-radius:16px;padding:24px;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.tip-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.tip-card h3 span{font-size:.7rem;background:var(--accent);color:#fff;padding:2px 8px;border-radius:20px;text-transform:uppercase}
+.tip-card p{font-size:.9rem;color:var(--muted);line-height:1.6}
+.tip-card .author{margin-top:10px;font-style:italic;color:var(--text);font-weight:500;text-align:right}
+@media(max-width:680px){.daily-tips{grid-template-columns:1fr}}
+
+/* PREMIUM */
+.prem-hero{padding:64px 5vw;text-align:center;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#f9f0ff 0%,var(--warm) 100%)}
+.prem-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-.03em;margin-bottom:14px}
+.prem-hero h1 em{font-style:normal;color:var(--premium)}
+.prem-hero p{color:var(--muted);font-size:.95rem;max-width:460px;margin:0 auto 28px;line-height:1.7}
+.prem-price{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--premium);line-height:1}
+.prem-price span{font-size:1rem;color:var(--muted);font-family:'Outfit',sans-serif;font-weight:400}
+.ben-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;padding:40px 5vw}
+.ben{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.ben-icon{width:40px;height:40px;background:var(--warm);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.ben-t{font-size:.88rem;font-weight:600;margin-bottom:3px}
+.ben-d{font-size:.74rem;color:var(--muted);line-height:1.5}
+.prem-cta{padding:0 5vw 52px;text-align:center}
+.btn-prem{display:inline-block;padding:16px 52px;background:var(--premium);color:#fff;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;cursor:pointer;transition:all .25s;letter-spacing:.06em;box-shadow:0 8px 24px rgba(123,45,139,.3)}
+.btn-prem:hover{background:#6a2478;transform:translateY(-2px);box-shadow:0 12px 32px rgba(123,45,139,.4)}
+
+/* ANNONCES */
+.ann-hdr{padding:40px 5vw 24px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--border)}
+.btn-post{padding:12px 24px;background:var(--accent);color:#fff;border:none;border-radius:11px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.btn-post:hover{background:#c94d00;transform:translateY(-1px)}
+.ann-filt{display:flex;gap:8px;padding:16px 5vw;flex-wrap:wrap;border-bottom:1px solid var(--border);background:#fff}
+.ann-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;padding:24px 5vw}
+.ann-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;transition:all .25s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ann-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.ann-type-b{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:999px;margin-bottom:10px}
+.at-vente{background:#fff0e8;color:var(--accent)}
+.at-adoption{background:#e8f5e9;color:var(--green)}
+.at-pension{background:#fff0f0;color:var(--flash)}
+.at-recherche{background:#f5f0ff;color:var(--premium)}
+.ann-anim{font-size:.82rem;margin-bottom:4px;color:var(--muted)}
+.ann-t{font-size:.95rem;font-weight:600;line-height:1.3;margin-bottom:8px}
+.ann-d{font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ann-meta{display:flex;justify-content:space-between;font-size:.67rem;color:var(--muted)}
+.ann-price-d{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--accent);margin-top:6px}
+.ann-ct{padding:7px 14px;background:transparent;border:1.5px solid var(--accent);color:var(--accent);border-radius:8px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;margin-top:10px;font-family:'Outfit',sans-serif}
+.ann-ct:hover{background:var(--accent);color:#fff}
+@keyframes cin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* BOUTON SAUVEGARDE */
+.save-btn{margin-left:10px;padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:.75rem;font-weight:600;color:var(--muted);cursor:pointer}
+.save-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 5vw;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;background:#fff}
+footer h4{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--text);margin-bottom:14px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:8px}
+footer ul li a{color:var(--muted);text-decoration:none;cursor:pointer;transition:color .2s;font-size:.83rem}
+footer ul li a:hover{color:var(--accent)}
+.pay-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.pay-chip{display:flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:5px 11px;font-size:.68rem;font-weight:600}
+.footer-btm{border-top:1px solid var(--border);padding:16px 5vw;display:flex;justify-content:space-between;color:var(--muted);font-size:.72rem;background:#fff}
+
+@media(max-width:680px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .svcs{grid-template-columns:1fr}
+  .filters{display:none}
+  footer{grid-template-columns:1fr}
+  .ann-hdr{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="showPage('home')">Pet<span>DZ</span></div>
+  <div class="nav-links">
+    <button class="nl active" id="nl-home" onclick="showPage('home')">Promos</button>
+    <button class="nl" id="nl-procuration" onclick="showPage('procuration')">Procuration</button>
+    <button class="nl pnav" id="nl-premium" onclick="showPage('premium')">Premium ⭐</button>
+    <button class="nl" id="nl-annonces" onclick="showPage('annonces')">Annonces</button>
+  </div>
+  <div class="nav-right"><div class="nav-badge">🇩🇿 Algérie</div></div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+<div class="ticker"><div class="ticker-inner">
+  <span>VENTES FLASH</span><span class="dot">◆</span><span>TEMU</span><span class="dot">·</span><span>ALIEXPRESS</span><span class="dot">·</span><span>EBAY</span><span class="dot">◆</span><span>CIB & EDAHABIA</span><span class="dot">◆</span><span>LIVRAISON ALGÉRIE</span><span class="dot">◆</span><span>JUSQU'À -70%</span><span class="dot">◆</span><span>PROCURATION</span><span class="dot">◆</span><span>PETITES ANNONCES</span><span class="dot">◆</span>
+  <span>VENTES FLASH</span><span class="dot">◆</span><span>TEMU</span><span class="dot">·</span><span>ALIEXPRESS</span><span class="dot">·</span><span>EBAY</span><span class="dot">◆</span><span>CIB & EDAHABIA</span><span class="dot">◆</span><span>LIVRAISON ALGÉRIE</span><span class="dot">◆</span><span>JUSQU'À -70%</span><span class="dot">◆</span><span>PROCURATION</span><span class="dot">◆</span><span>PETITES ANNONCES</span><span class="dot">◆</span>
+</div></div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="tag">Agrégateur #1 en Algérie</div>
+    <h1>Les meilleures<em>promos animaux</em>réunies ici.</h1>
+    <p>Ventes flash, fins de séries, soldes — uniquement les vraies réductions pour chiens et chats.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n" id="cnt">0</div><div class="stat-l">Deals actifs</div></div>
+      <div class="stat"><div class="stat-n">-70%</div><div class="stat-l">Réduction max</div></div>
+      <div class="stat"><div class="stat-n">48h</div><div class="stat-l">Flash max</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80" alt="Chien"/><div class="hi-label">Chiens 🐕</div></div>
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80" alt="Chat"/><div class="hi-label">Chats 🐈</div></div>
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=400&q=80" alt="Produits"/><div class="hi-label">Accessoires</div></div>
+  </div>
+</section>
+
+<div class="svcs">
+  <div class="svc" onclick="showPage('procuration')"><div class="svc-icon">🛒</div><div class="svc-info"><div class="svc-t">Achat par Procuration</div><div class="svc-d">Carte refusée sur Temu ? On achète pour toi. +12%</div></div></div>
+  <div class="svc prem" onclick="showPage('premium')"><div class="svc-icon">⭐</div><div class="svc-info"><div class="svc-t">PetDZ Premium</div><div class="svc-d">700 DA/mois — Alertes WhatsApp & deals exclusifs</div></div></div>
+  <div class="svc" onclick="showPage('annonces')"><div class="svc-icon">📋</div><div class="svc-info"><div class="svc-t">Petites Annonces</div><div class="svc-d">Vente, adoption, pension — 300 DA pour poster</div></div></div>
+</div>
+
+<div class="sources">
+  <span class="src-lbl">Sources</span>
+  <div class="src-chips">
+    <div class="src-chip"><span class="src-dot" style="background:#ff6600"></span>Temu</div>
+    <div class="src-chip"><span class="src-dot" style="background:#e62117"></span>AliExpress</div>
+    <div class="src-chip"><span class="src-dot" style="background:#0064d2"></span>eBay</div>
+    <div class="src-chip"><span class="src-dot" style="background:#2d6a4f"></span>Boutiques DZ</div>
+  </div>
+</div>
+
+<!-- TÉMOIGNAGES -->
+<section class="testimonials">
+  <div class="sec-hdr"><span class="sec-t">Ils nous font confiance</span></div>
+  <div class="testi-grid">
+    <div class="testi-card"><p>« Grâce à PetDZ, j’ai économisé 40% sur les croquettes de mon chien. Le service de procuration est super fiable. »</p><div class="testi-author"><span>Amine K.</span><small>Alger</small></div></div>
+    <div class="testi-card"><p>« J’ai adopté mon chat via une annonce. Paiement simple et propriétaire sérieux. Je recommande ! »</p><div class="testi-author"><span>Lina B.</span><small>Oran</small></div></div>
+    <div class="testi-card"><p>« Les alertes WhatsApp Premium m’ont permis de chopper une promo flash sur un arbre à chat. Top ! »</p><div class="testi-author"><span>Yacine M.</span><small>Constantine</small></div></div>
+  </div>
+</section>
+
+<!-- CONSEIL ET CITATION DU JOUR -->
+<section class="daily-tips">
+  <div class="tip-card">
+    <h3>🐾 Conseil du jour <span>Nouveau chaque jour</span></h3>
+    <p id="daily-tip-text"></p>
+  </div>
+  <div class="tip-card">
+    <h3>💬 Citation du jour <span>Inspiration animale</span></h3>
+    <p id="daily-quote-text"></p>
+    <div class="author" id="daily-quote-author"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-hdr">
+    <div><span class="sec-t">Ventes Flash</span><span class="live-pill"><span class="pulse"></span>Live</span></div>
+    <div class="filters">
+      <button class="fbtn active" onclick="fA('all',this)">Tous</button>
+      <button class="fbtn" onclick="fA('chien',this)">🐕 Chiens</button>
+      <button class="fbtn" onclick="fA('chat',this)">🐈 Chats</button>
+    </div>
+  </div>
+  <div class="grid" id="flash-g"></div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="sec-hdr"><span class="sec-t">Soldes en cours</span></div>
+  <div class="cat-row">
+    <button class="cat active" onclick="fC('all',this)">Tout</button>
+    <button class="cat" onclick="fC('alimentation',this)">Alimentation</button>
+    <button class="cat" onclick="fC('hygiene',this)">Hygiène</button>
+    <button class="cat" onclick="fC('accessoire',this)">Accessoires</button>
+    <button class="cat" onclick="fC('sante',this)">Santé</button>
+  </div>
+  <div class="grid" id="sale-g"></div>
+</section>
+</div>
+
+<!-- PROCURATION -->
+<div class="page" id="page-procuration">
+<div class="ph">
+  <div class="tag">Service exclusif PetDZ</div>
+  <h1>Achat par<br>Procuration</h1>
+  <p>Ta carte CIB/EDAHABIA ne fonctionne pas sur Temu, AliExpress ou eBay ? On achète le produit pour toi avec notre carte internationale. Tu paies à l'avance, on gère le reste.</p>
+</div>
+<div class="how-g">
+  <div class="how-c" data-n="1"><div class="how-t">Colle le lien</div><div class="how-d">Copie l'URL du produit sur Temu, AliExpress ou eBay.</div></div>
+  <div class="how-c" data-n="2"><div class="how-t">Remplis le formulaire</div><div class="how-d">Variante (taille, couleur), adresse, téléphone.</div></div>
+  <div class="how-c" data-n="3"><div class="how-t">Signe & paie</div><div class="how-d">Accepte les conditions, paie via Chargily (CIB ou EDAHABIA).</div></div>
+  <div class="how-c" data-n="4"><div class="how-t">On commande</div><div class="how-d">On achète avec notre carte. Livraison à domicile selon les délais de la plateforme.</div></div>
+</div>
+<div class="proc-wrap">
+<div class="proc-f">
+  <div class="proc-ft">Nouvelle demande de procuration</div>
+
+  <!-- MESSAGE TEMPORAIRE PAIEMENT -->
+  <div class="pay-warning">
+    <span>⚠️</span>
+    <span><strong>Paiement Chargily en cours d'activation.</strong> En attendant, vous pouvez nous contacter directement pour finaliser votre achat par virement ou dépôt. <span class="contact-badge">WhatsApp +213 552 64 60 20</span></span>
+  </div>
+
+  <div class="fg"><label>Plateforme</label>
+    <div class="plat-pick">
+      <div class="plat-btn sel" id="pb-temu" onclick="selP('temu')">🛍️ Temu</div>
+      <div class="plat-btn" id="pb-aliexpress" onclick="selP('aliexpress')">🔴 AliExpress</div>
+      <div class="plat-btn" id="pb-ebay" onclick="selP('ebay')">🔵 eBay</div>
+    </div>
+  </div>
+  <div class="fg"><label>Lien du produit (URL)</label><input id="p-url" type="url" placeholder="https://www.temu.com/..."/></div>
+  <div class="fg"><label>Variante (taille, couleur, quantité)</label><input id="p-var" placeholder="Ex: Taille M, Rouge, Quantité 2"/></div>
+  <div class="fg"><label>Prix du produit sur la plateforme (€ euros)</label><input id="p-price" type="number" placeholder="15" step="0.01" oninput="calcT()"/></div>
+  <div class="comm-box" id="p-calc" style="display:none">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.78rem;color:var(--muted)">
+      <div>Prix produit (€→DA) : <strong id="cc-prod" style="color:var(--text)">—</strong></div>
+      <div>Commission 12% : <strong id="cc-comm" style="color:var(--text)">—</strong></div>
+      <div>Frais service : <strong style="color:var(--text)">500 DA</strong></div>
+      <div>Livraison DZ : <strong style="color:var(--text)">à confirmer</strong></div>
+    </div>
+    <div class="comm-total" id="cc-total">—</div>
+    <div style="font-size:.67rem;color:var(--muted);margin-top:4px">Total à payer maintenant (hors livraison DZ)</div>
+  </div>
+  <div class="fg"><label>Adresse de livraison complète</label><input id="p-addr" placeholder="Wilaya, commune, rue, numéro"/></div>
+  <div class="fg"><label>Téléphone WhatsApp</label><input id="p-phone" type="tel" placeholder="0xxxxxxxxx"/></div>
+  <div class="fg"><label>Nom complet</label><input id="p-name" placeholder="Prénom Nom"/></div>
+  <div class="eng-box">
+    <strong>Conditions d'engagement</strong>
+    ✅ Paiement intégral exigé avant tout achat.<br>
+    ✅ PetDZ non responsable des délais de livraison de la plateforme.<br>
+    ✅ Produit indisponible → remboursement intégral sous 72h.<br>
+    ✅ Mauvaise variante choisie par le client → pas de remboursement.<br>
+    ✅ Commission 12% + 500 DA frais non remboursables.<br>
+    ✅ Livraison jusqu'en Algérie à la charge du client.
+    <label class="chk-row"><input type="checkbox" id="p-eng"/> <span style="font-size:.77rem">J'ai lu et j'accepte les conditions</span></label>
+  </div>
+
+  <!-- MENTION SÉCURITÉ -->
+  <div class="secu-note">Vos données sont traitées de manière sécurisée et ne sont pas partagées.</div>
+
+  <div class="pay-err" id="p-err"></div>
+  <button class="btn-p" style="width:100%" id="proc-btn" onclick="submitProc()">Payer et soumettre la demande</button>
+  <div class="co-note">Paiement sécurisé via Chargily Pay · CIB & EDAHABIA</div>
+
+  <!-- FAQ -->
+  <div class="faq-box">
+    <div class="faq-q">❓ Comment payer en attendant Chargily ?</div>
+    <div class="faq-a">Contactez-nous sur WhatsApp au +213 552 64 60 20. Nous vous enverrons un RIB pour un virement ou conviendrons d'un dépôt si vous êtes à Alger/Oran.</div>
+    <div class="faq-q">❓ Est-ce que mes données sont protégées ?</div>
+    <div class="faq-a">Oui, toutes les informations sont stockées localement sur votre navigateur ou transmises de façon sécurisée. Nous ne conservons pas vos coordonnées bancaires.</div>
+    <div class="faq-q">❓ Quand mon produit sera-t-il livré ?</div>
+    <div class="faq-a">Le délai dépend de la plateforme (Temu/AliExpress) : généralement 15 à 25 jours ouvrés. Dès que nous recevons le numéro de suivi, nous vous l'envoyons par WhatsApp.</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- PREMIUM -->
+<div class="page" id="page-premium">
+<div class="prem-hero">
+  <p style="font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;color:var(--premium);margin-bottom:12px;font-weight:600">Abonnement mensuel</p>
+  <h1>PetDZ<em>Premium</em></h1>
+  <p>Sois le premier informé des ventes flash. Accès aux deals que le public ne voit pas.</p>
+  <div class="prem-price">700 DA<span>/mois</span></div>
+</div>
+<div class="ben-g">
+  <div class="ben"><div class="ben-icon">⚡</div><div><div class="ben-t">Alertes Flash WhatsApp</div><div class="ben-d">Notification instantanée des ventes flash avant publication publique.</div></div></div>
+  <div class="ben"><div class="ben-icon">🔒</div><div><div class="ben-t">Deals Exclusifs Members</div><div class="ben-d">Certains produits réservés aux abonnés uniquement. Jamais publics.</div></div></div>
+  <div class="ben"><div class="ben-icon">🛒</div><div><div class="ben-t">Priorité Procuration</div><div class="ben-d">Demandes traitées en priorité. Délai réduit de 24h.</div></div></div>
+  <div class="ben"><div class="ben-icon">📋</div><div><div class="ben-t">1 Annonce Gratuite/mois</div><div class="ben-d">1 annonce gratuite au lieu de 300 DA. Mise en avant dans les résultats.</div></div></div>
+  <div class="ben"><div class="ben-icon">💬</div><div><div class="ben-t">Groupe WhatsApp Privé</div><div class="ben-d">Accès au groupe members. Bons plans, conseils, entraide communauté.</div></div></div>
+  <div class="ben"><div class="ben-icon">🏷️</div><div><div class="ben-t">Commission -3%</div><div class="ben-d">Commission procuration à 9% au lieu de 12%.</div></div></div>
+</div>
+<div class="prem-cta">
+  <button class="btn-prem" onclick="openPremCo()">S'abonner — 700 DA/mois</button>
+  <div style="margin-top:12px;font-size:.72rem;color:var(--muted)">Résiliation possible à tout moment · Paiement via Chargily</div>
+</div>
+</div>
+
+<!-- ANNONCES -->
+<div class="page" id="page-annonces">
+<div class="ann-hdr">
+  <div><div style="font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900">Petites Annonces</div><div style="color:var(--muted);font-size:.82rem;margin-top:4px">Vente · Adoption · Pension · Recherche — Algérie</div></div>
+  <div style="display:flex;gap:10px">
+    <button class="save-btn" onclick="exportAnnonces()">💾 Sauvegarder mes annonces</button>
+    <button class="btn-post" onclick="openPostAnn()">+ Poster — 300 DA</button>
+  </div>
+</div>
+<div class="ann-filt">
+  <button class="cat active" onclick="fAnn('all',this)">Toutes</button>
+  <button class="cat" onclick="fAnn('vente',this)">🏷️ Vente</button>
+  <button class="cat" onclick="fAnn('adoption',this)">💚 Adoption</button>
+  <button class="cat" onclick="fAnn('pension',this)">🏠 Pension</button>
+  <button class="cat" onclick="fAnn('recherche',this)">🔍 Recherche</button>
+</div>
+<div class="ann-grid" id="ann-grid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="logo" style="margin-bottom:12px;font-size:1.5rem">Pet<span style="color:var(--accent)">DZ</span></div>
+    <p style="font-size:.83rem;color:var(--muted);line-height:1.6">Promos, procuration et annonces animaleries Algérie.</p>
+    <div class="pay-row"><span class="pay-chip">💳 CIB</span><span class="pay-chip">💳 EDAHABIA</span><span class="pay-chip">💵 Cash</span></div>
+  </div>
+  <div><h4>Services</h4><ul>
+    <li><a onclick="showPage('home')">Ventes Flash</a></li>
+    <li><a onclick="showPage('procuration')">Procuration</a></li>
+    <li><a onclick="showPage('premium')">Premium</a></li>
+    <li><a onclick="showPage('annonces')">Annonces</a></li>
+  </ul></div>
+  <div><h4>Contact</h4><ul>
+    <li><a href="https://www.facebook.com/share/1Batzx2DoY/" target="_blank">Page Facebook</a></li>
+    <li><a href="mailto:contact.petdz@gmail.com">contact.petdz@gmail.com</a></li>
+    <li><a href="tel:+213552646020">+213 552 64 60 20</a></li>
+  </ul></div>
+</footer>
+<div class="footer-btm"><span>© 2025 PetDZ — Algérie</span><span>Prix incluent marge de service</span></div>
+
+<!-- PRODUCT MODAL -->
+<div class="ov" id="m-ov" onclick="closeM(event)">
+  <div class="modal">
+    <div class="m-img"><img id="m-img" src="" alt=""/></div>
+    <div class="m-body">
+      <div class="m-src" id="m-src"></div>
+      <div class="m-title" id="m-title"></div>
+      <div class="m-price"><div class="mp-new" id="mp-new"></div><div class="mp-old" id="mp-old"></div><div class="mp-pct" id="mp-pct"></div></div>
+      <div class="m-desc" id="m-desc"></div>
+      <div class="m-acts"><button class="btn-p" id="m-cta">Commander</button><button class="btn-g" onclick="closeM()">✕ Fermer</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="ov" id="co-ov" onclick="closeCo(event)">
+  <div class="co-m">
+    <div class="co-hdr"><div class="co-ht" id="co-ht">Finaliser</div><button class="btn-g" onclick="closeCo()">✕</button></div>
+    <div class="co-pt" id="co-pt"></div>
+    <div class="fg"><label>Nom complet</label><input id="pay-name" placeholder="Ahmed Benali"/></div>
+    <div class="fg"><label>Téléphone</label><input id="pay-phone" type="tel" placeholder="0xxxxxxxxx"/></div>
+    <div class="pay-err" id="pay-err"></div>
+    <button class="btn-p" style="width:100%" id="pay-btn" onclick="submitPay()">Payer via Chargily</button>
+    <div class="co-note">Paiement sécurisé via Chargily Pay · CIB & EDAHABIA</div>
+  </div>
+</div>
+
+<!-- ANNONCE MODAL -->
+<div class="ov" id="ann-ov" onclick="closeAnn(event)" style="align-items:flex-start">
+  <div class="co-m" style="max-width:500px;margin-top:20px">
+    <div class="co-hdr"><div class="co-ht">Poster une annonce — 300 DA</div><button class="btn-g" onclick="closeAnn()">✕</button></div>
+    <div class="fg"><label>Type</label><select id="an-type"><option value="vente">🏷️ Vente</option><option value="adoption">💚 Adoption gratuite</option><option value="pension">🏠 Pension animaux</option><option value="recherche">🔍 Recherche</option></select></div>
+    <div class="fg"><label>Animal</label><select id="an-animal"><option value="chien">🐕 Chien</option><option value="chat">🐈 Chat</option><option value="autre">🐾 Autre</option></select></div>
+    <div class="fg"><label>Titre</label><input id="an-title" placeholder="Ex: Chiot Husky 2 mois — Alger"/></div>
+    <div class="fg"><label>Description</label><textarea id="an-desc" rows="3" placeholder="Âge, race, santé, conditions..."></textarea></div>
+    <div class="fg"><label>Prix DA (0 si gratuit)</label><input id="an-price" type="number" placeholder="0"/></div>
+    <div class="fg"><label>Wilaya</label><select id="an-wilaya"><option>Alger</option><option>Oran</option><option>Constantine</option><option>Annaba</option><option>Blida</option><option>Sétif</option><option>Tlemcen</option><option>Batna</option><option>Béjaïa</option><option>Tizi Ouzou</option><option>Autre</option></select></div>
+    <div class="fg"><label>Téléphone de contact</label><input id="an-phone" type="tel" placeholder="0xxxxxxxxx"/></div>
+
+    <!-- MENTION SÉCURITÉ -->
+    <div class="secu-note">Vos données sont traitées de manière sécurisée et ne sont pas partagées.</div>
+
+    <div class="pay-err" id="ann-err"></div>
+    <button class="btn-p" style="width:100%" id="ann-btn" onclick="submitAnn()">Payer 300 DA et publier</button>
+    <div class="co-note">Annonce publiée après confirmation du paiement</div>
+  </div>
+</div>
+
+<script>
+// ========== NOUVEAU : CONSEIL ET CITATION DU JOUR ==========
+const dailyTips = [
+  "Pour un chiot, privilégie des repas fréquents (3 à 4 fois par jour) jusqu'à 6 mois, puis passe à 2 repas par jour.",
+  "Les chats ont besoin de griffoirs pour faire leurs griffes et marquer leur territoire ; cela évite qu'ils s'attaquent aux meubles.",
+  "Un brossage régulier (2 à 3 fois par semaine) réduit les boules de poils chez les chats et maintient le pelage du chien en bonne santé.",
+  "L'eau fraîche doit être changée quotidiennement et la gamelle nettoyée pour éviter les bactéries.",
+  "Les friandises ne doivent pas dépasser 10% de l'apport calorique quotidien de votre animal.",
+  "Pour un chat d'intérieur, pensez à des jeux d'intelligence pour stimuler son mental.",
+  "La stérilisation prévient de nombreux problèmes de santé et comportementaux chez les chiens et chats.",
+  "Un chien adulte a besoin d'au moins 30 minutes d'exercice par jour, certaines races demandent beaucoup plus.",
+  "Les oreilles du chien doivent être vérifiées régulièrement : rougeur ou odeur peuvent signaler une infection.",
+  "Un arbre à chat placé près d'une fenêtre offre à votre chat un poste d'observation qu'il adore."
+];
+
+const dailyQuotes = [
+  { text: "Le chien est le seul être au monde qui vous aimera plus que vous ne vous aimez vous-même.", author: "Josh Billings" },
+  { text: "Le chat est un lion dans une jungle de meubles.", author: "Proverbe indien" },
+  { text: "Plus je connais les hommes, plus j'aime les chiens.", author: "Madame de Sévigné" },
+  { text: "Les chiens ont des maîtres, les chats ont des domestiques.", author: "Proverbe" },
+  { text: "Le temps passé avec un chat n'est jamais perdu.", author: "Sidonie-Gabrielle Colette" },
+  { text: "Le chien est la vertu qui ne pouvant se faire homme, s'est faite bête.", author: "Victor Hugo" },
+  { text: "Les chats sont les maîtres de la maison ; nous ne sommes que leurs serviteurs.", author: "Anonyme" },
+  { text: "Un chien est la seule chose sur terre qui vous aime plus qu'il ne s'aime lui-même.", author: "Josh Billings" },
+  { text: "Le chat, cet animal si doux et si mystérieux, est un vrai compagnon de l'âme.", author: "Baudelaire" },
+  { text: "Avoir un chien dans sa vie, c'est accepter de se faire aimer plus qu'on ne le mérite.", author: "Anonyme" }
+];
+
+function getTodayIndex(arrayLength) {
+  const daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+  return daysSinceEpoch % arrayLength;
+}
+
+function updateDailyTips() {
+  const tipIndex = getTodayIndex(dailyTips.length);
+  const quoteIndex = getTodayIndex(dailyQuotes.length);
+  document.getElementById('daily-tip-text').textContent = dailyTips[tipIndex];
+  document.getElementById('daily-quote-text').textContent = dailyQuotes[quoteIndex].text;
+  document.getElementById('daily-quote-author').textContent = '— ' + dailyQuotes[quoteIndex].author;
+}
+updateDailyTips();
+// ========== FIN NOUVEAU ==========
+
+// ========== CODE EXISTANT ==========
+const SK='test_sk_O42oiGvpsLW45Ynx60fK4csYHPLIE3Lj2G6fhE9E';
+const PC={temu:'#ff6600',aliexpress:'#e62117',ebay:'#0064d2',local:'#2d6a4f'};
+const PL={temu:'Temu',aliexpress:'AliExpress',ebay:'eBay',local:'Boutique DZ'};
+const IMGS={
+  chien_ali:'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600&q=80',
+  chat_ali:'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=600&q=80',
+  chien_acc:'https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&q=80',
+  chat_acc:'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80',
+  chien_san:'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80',
+  chat_san:'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80',
+  chien_hyg:'https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=600&q=80',
+  chat_hyg:'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&q=80',
+};
+function getImg(p){return p.img||IMGS[p.animal+'_'+p.cat.slice(0,3)]||IMGS[p.animal+'_ali']||IMGS.chien_ali}
+function hrs(h){return h?Date.now()+h*3600000:null}
+function disc(o,n){return Math.round((1-n/o)*100)}
+function fp(p){return p.toLocaleString('fr-DZ')+' DA'}
+function fmt(ms){if(ms<=0)return'00:00:00';const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;return[h,m,sc].map(v=>String(v).padStart(2,'0')).join(':')}
+
+const P=[
+{id:1,type:'flash',animal:'chien',cat:'alimentation',name:'Royal Canin Medium Adult 15kg',src:'Temu',plat:'temu',op:6800,np:4200,end:hrs(6),link:'https://temu.to/k/e6c3s5aetpv',desc:'Croquettes premium pour chiens de taille moyenne. Riche en protéines. Fin de stock.',img:'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600&q=80'},
+{id:2,type:'flash',animal:'chat',cat:'alimentation',name:'Purina Pro Plan Saumon 10kg',src:'Temu',plat:'temu',op:5200,np:2900,end:hrs(8),link:'https://temu.to/k/e6sv54vok7h',desc:'Aliment complet chats adultes. Enrichi en oméga-3. Livraison 15-25 jours.',img:'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=600&q=80'},
+{id:3,type:'flash',animal:'chien',cat:'sante',name:'Antiparasitaire Spot-On x6',src:'Temu',plat:'temu',op:2800,np:980,end:hrs(5),link:'https://temu.to/k/ehntxv1jh73',desc:'Protection puces et tiques 4 semaines. Lot 6 pipettes. Stock limité.',img:'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80'},
+{id:4,type:'flash',animal:'chat',cat:'accessoire',name:'Griffoir Arbre à Chat 4 Niveaux',src:'Temu',plat:'temu',op:3500,np:1400,end:hrs(12),link:'https://temu.to/k/efi1scl4z9v',desc:'Griffoirs sisal naturel. 4 plateformes, 2 niches. Note 4.7/5.',img:'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80'},
+{id:5,type:'flash',animal:'chien',cat:'accessoire',name:'Collier GPS Tracker Chien',src:'Temu',plat:'temu',op:4200,np:2100,end:hrs(7),link:'https://temu.to/k/esl7kn0x2v7',desc:'Localisation GPS temps réel. Waterproof IP67. Compatible Android/iOS.',img:'https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&q=80'},
+{id:6,type:'flash',animal:'chien',cat:'alimentation',name:'Alimentation Premium Chien',src:'AliExpress',plat:'aliexpress',op:4800,np:2200,end:hrs(10),link:'https://s.click.aliexpress.com/e/_c3Qyu8yn',desc:'Nourriture complète chien adulte. Promotion limitée.',img:'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600&q=80'},
+{id:7,type:'flash',animal:'chat',cat:'alimentation',name:'Nourriture Premium Chat 5kg',src:'AliExpress',plat:'aliexpress',op:3200,np:1450,end:hrs(14),link:'https://s.click.aliexpress.com/e/_c4UF0X5V',desc:'Aliment complet chat adulte. Riche en protéines.',img:'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=600&q=80'},
+{id:8,type:'sale',animal:'chien',cat:'accessoire',name:'Kit Accessoires Animaux',src:'AliExpress',plat:'aliexpress',op:2600,np:980,end:null,link:'https://s.click.aliexpress.com/e/_c4DRN5YL',desc:'Accessoires complets. Livraison 15-25j.',img:'https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&q=80'},
+{id:9,type:'sale',animal:'chat',cat:'hygiene',name:'Shampoing Démêlant Poils Longs',src:'Temu',plat:'temu',op:980,np:390,end:null,link:'https://temu.to/k/efi1scl4z9v',desc:'Formule douce sans parabènes. Facilite le démêlage.',img:'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&q=80'},
+{id:10,type:'sale',animal:'chien',cat:'sante',name:'Kit Hygiène Dentaire Vétérinaire',src:'Temu',plat:'temu',op:1200,np:620,end:null,link:'https://temu.to/k/esl7kn0x2v7',desc:'Kit hygiène dentaire. Prévient le tartre.',img:'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80'},
+{id:11,type:'sale',animal:'chat',cat:'accessoire',name:'Maison Transport Rigide Taille M',src:'Temu',plat:'temu',op:3800,np:1650,end:null,link:'https://temu.to/k/efi1scl4z9v',desc:'Verrou sécurisé, ventilation optimale.',img:'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80'},
+{id:12,type:'sale',animal:'chien',cat:'hygiene',name:'Table Toilettage Pliable Pro',src:'AliExpress',plat:'aliexpress',op:8500,np:4200,end:null,link:'https://s.click.aliexpress.com/e/_c4DRN5YL',desc:'Table pliable bras de retenue. Charge max 120kg.',img:'https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=600&q=80'},
+];
+
+function getAnns(){try{return JSON.parse(localStorage.getItem('petdz_ann')||'[]')}catch{return[]}}
+function saveAnns(a){localStorage.setItem('petdz_ann',JSON.stringify(a))}
+let cA='all',cC='all',cAnn='all',cP=null,coMode='product',selPlatform='temu';
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nl').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  const el=document.getElementById('nl-'+id);if(el)el.classList.add('active');
+  if(id==='annonces')renderAnns();
+  window.scrollTo(0,0);
+}
+
+function renderFlash(){
+  const g=document.getElementById('flash-g');
+  const items=P.filter(p=>p.type==='flash'&&(cA==='all'||p.animal===cA));
+  g.innerHTML=items.map((p,i)=>`<div class="card" style="animation:cin .5s ease ${i*.08}s both" onclick="openM(${p.id})">
+<div class="card-img">
+  <span class="badge badge-f">Flash</span>
+  <span class="abadge">${p.animal==='chien'?'🐕':'🐈'}</span>
+  <img src="${getImg(p)}" alt="${p.name}" loading="lazy"/>
+  <div class="cd"><span class="cd-l">Fin dans</span><span class="cd-t" id="cd-${p.id}">${fmt(p.end-Date.now())}</span></div>
+  <div class="platb" style="color:${PC[p.plat]}">${PL[p.plat]}</div>
+</div>
+<div class="card-body">
+  <div class="card-src">${p.src}</div>
+  <div class="card-name">${p.name}</div>
+  <div class="card-price"><span class="p-new">${fp(p.np)}</span><span class="p-old">${fp(p.op)}</span><span class="p-pct">-${disc(p.op,p.np)}%</span></div>
+  <button class="cta">Voir le deal</button>
+</div></div>`).join('');
+}
+
+function renderSale(){
+  const g=document.getElementById('sale-g');
+  const items=P.filter(p=>p.type==='sale'&&(cA==='all'||p.animal===cA)&&(cC==='all'||p.cat===cC));
+  g.innerHTML=items.map((p,i)=>`<div class="card" style="animation:cin .5s ease ${i*.08}s both" onclick="openM(${p.id})">
+<div class="card-img">
+  <span class="badge badge-s">Solde</span>
+  <span class="abadge">${p.animal==='chien'?'🐕':'🐈'}</span>
+  <img src="${getImg(p)}" alt="${p.name}" loading="lazy"/>
+  <div class="platb" style="color:${PC[p.plat]}">${PL[p.plat]}</div>
+</div>
+<div class="card-body">
+  <div class="card-src">${p.src}</div>
+  <div class="card-name">${p.name}</div>
+  <div class="card-price"><span class="p-new">${fp(p.np)}</span><span class="p-old">${fp(p.op)}</span><span class="p-pct">-${disc(p.op,p.np)}%</span></div>
+  <button class="cta">Commander</button>
+</div></div>`).join('');
+}
+
+function fA(a,btn){cA=a;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderFlash();renderSale();}
+function fC(c,btn){cC=c;document.querySelectorAll('.cat-row .cat').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSale();}
+
+function openM(id){
+  const p=P.find(x=>x.id===id);
+  document.getElementById('m-img').src=getImg(p);
+  document.getElementById('m-src').textContent=p.src+' — '+(p.animal==='chien'?'🐕 Chien':'🐈 Chat');
+  document.getElementById('m-title').textContent=p.name;
+  document.getElementById('mp-new').textContent=fp(p.np);
+  document.getElementById('mp-old').textContent=fp(p.op);
+  document.getElementById('mp-pct').textContent='-'+disc(p.op,p.np)+'%';
+  document.getElementById('m-desc').textContent=p.desc;
+  const hasLink=p.link&&p.link!=='#';
+  document.getElementById('m-cta').textContent=hasLink?'⚡ Voir sur '+PL[p.plat]:'Commander';
+  document.getElementById('m-cta').onclick=()=>{closeM();if(hasLink)window.open(p.link,'_blank');else openCo(p,'product');};
+  document.getElementById('m-ov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeM(e){if(!e||e.target===document.getElementById('m-ov')){document.getElementById('m-ov').classList.remove('open');document.body.style.overflow='';}}
+
+function openCo(p,mode){
+  cP=p;coMode=mode;
+  document.getElementById('co-ht').textContent=mode==='premium'?'Abonnement Premium':mode==='annonce'?'Paiement annonce':'Finaliser la commande';
+  document.getElementById('co-pt').textContent=fp(p.np||p.amount);
+  document.getElementById('pay-err').style.display='none';
+  document.getElementById('pay-name').value='';
+  document.getElementById('pay-phone').value='';
+  document.getElementById('pay-btn').textContent='Payer via Chargily';
+  document.getElementById('pay-btn').disabled=false;
+  document.getElementById('co-ov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCo(e){if(!e||e.target===document.getElementById('co-ov')){document.getElementById('co-ov').classList.remove('open');document.body.style.overflow='';}}
+
+async function submitPay(){
+  const name=document.getElementById('pay-name').value.trim();
+  const phone=document.getElementById('pay-phone').value.trim();
+  const err=document.getElementById('pay-err');
+  if(!name||name.length<3){err.textContent='Entrez votre nom complet.';err.style.display='block';return;}
+  if(!phone||phone.length<9){err.textContent='Entrez un numéro valide.';err.style.display='block';return;}
+  err.style.display='none';
+  document.getElementById('pay-btn').textContent='Redirection...';
+  document.getElementById('pay-btn').disabled=true;
+  const amount=cP.np||cP.amount;
+  const desc=coMode==='premium'?'PetDZ Premium':coMode==='annonce'?'PetDZ Annonce':`PetDZ — ${cP.name}`;
+  try{
+    const r=await fetch('https://pay.chargily.net/test/api/v2/checkouts',{method:'POST',headers:{'Authorization':'Bearer '+SK,'Content-Type':'application/json'},body:JSON.stringify({amount,currency:'dzd',payment_method:'edahabia',success_url:location.href+'?ok=1&mode='+coMode,failure_url:location.href+'?fail=1',description:desc,locale:'fr',metadata:{desc,customer:name,phone}})});
+    const d=await r.json();
+    if(d.checkout_url)location.href=d.checkout_url;
+    else{err.textContent='Erreur paiement.';err.style.display='block';document.getElementById('pay-btn').textContent='Payer via Chargily';document.getElementById('pay-btn').disabled=false;}
+  }catch(e){err.textContent='Connexion échouée.';err.style.display='block';document.getElementById('pay-btn').textContent='Payer via Chargily';document.getElementById('pay-btn').disabled=false;}
+}
+
+function selP(p){selPlatform=p;['temu','aliexpress','ebay'].forEach(x=>document.getElementById('pb-'+x).classList.toggle('sel',x===p));}
+const TAUX=300;
+function calcT(){
+  const priceEur=parseFloat(document.getElementById('p-price').value)||0;
+  if(!priceEur){document.getElementById('p-calc').style.display='none';return;}
+  const priceDa=Math.round(priceEur*TAUX),comm=Math.round(priceDa*0.12),total=priceDa+comm+500;
+  document.getElementById('cc-prod').textContent=priceEur.toFixed(2)+'€ = '+fp(priceDa);
+  document.getElementById('cc-comm').textContent=fp(comm);
+  document.getElementById('cc-total').textContent=fp(total);
+  document.getElementById('p-calc').style.display='block';
+}
+
+async function submitProc(){
+  const url=document.getElementById('p-url').value.trim();
+  const variante=document.getElementById('p-var').value.trim();
+  const price=parseFloat(document.getElementById('p-price').value)||0;
+  const addr=document.getElementById('p-addr').value.trim();
+  const phone=document.getElementById('p-phone').value.trim();
+  const name=document.getElementById('p-name').value.trim();
+  const engag=document.getElementById('p-eng').checked;
+  const err=document.getElementById('p-err');
+  const btn=document.getElementById('proc-btn');
+  if(!url||!url.startsWith('http')){err.textContent='Entrez un lien valide.';err.style.display='block';return;}
+  if(!variante){err.textContent='Précisez la variante.';err.style.display='block';return;}
+  if(!price||price<0.5){err.textContent='Entrez le prix en euros (ex: 15).';err.style.display='block';return;}
+  if(!addr){err.textContent='Entrez votre adresse.';err.style.display='block';return;}
+  if(!phone||phone.length<9){err.textContent='Numéro WhatsApp invalide.';err.style.display='block';return;}
+  if(!name){err.textContent='Entrez votre nom.';err.style.display='block';return;}
+  if(!engag){err.textContent='Acceptez les conditions.';err.style.display='block';return;}
+  err.style.display='none';
+  const priceDa=Math.round(price*TAUX),comm=Math.round(priceDa*0.12),total=priceDa+comm+500;
+  btn.textContent='Redirection...';btn.disabled=true;
+  try{
+    const r=await fetch('https://pay.chargily.net/test/api/v2/checkouts',{method:'POST',headers:{'Authorization':'Bearer '+SK,'Content-Type':'application/json'},body:JSON.stringify({amount:total,currency:'dzd',payment_method:'edahabia',success_url:location.href+'?ok=1&mode=procuration',failure_url:location.href+'?fail=1',description:'PetDZ Procuration — '+selPlatform,locale:'fr',metadata:{platform:selPlatform,url,variante,price_eur:price,price_da:priceDa,total,addr,phone,name}})});
+    const d=await r.json();
+    if(d.checkout_url)location.href=d.checkout_url;
+    else{err.textContent='Erreur paiement.';err.style.display='block';btn.textContent='Payer et soumettre';btn.disabled=false;}
+  }catch(e){err.textContent='Connexion échouée.';err.style.display='block';btn.textContent='Payer et soumettre';btn.disabled=false;}
+}
+
+function openPremCo(){openCo({amount:700},'premium');}
+
+function renderAnns(){
+  const g=document.getElementById('ann-grid');
+  const all=getAnns().filter(a=>!a.pending);
+  const items=cAnn==='all'?all:all.filter(a=>a.type===cAnn);
+  if(!items.length){
+    g.innerHTML=`<div style="grid-column:1/-1;padding:60px;text-align:center;color:var(--muted)"><div style="font-size:3rem;margin-bottom:12px">📋</div><p style="font-size:.9rem;margin-bottom:20px">Aucune annonce pour le moment.</p><button class="btn-post" onclick="openPostAnn()">Être le premier</button></div>`;
+    return;
+  }
+  const tmap={vente:'🏷️ Vente',adoption:'💚 Adoption',pension:'🏠 Pension',recherche:'🔍 Recherche'};
+  g.innerHTML=items.map(a=>`<div class="ann-card">
+<div><span class="ann-type-b at-${a.type}">${tmap[a.type]||a.type}</span></div>
+<div class="ann-anim">${{chien:'🐕',chat:'🐈',autre:'🐾'}[a.animal]||'🐾'} ${a.animal}</div>
+<div class="ann-t">${a.title}</div>
+<div class="ann-d">${a.desc}</div>
+<div class="ann-meta"><span>📍 ${a.wilaya}</span><span>${new Date(a.date).toLocaleDateString('fr-DZ')}</span></div>
+${a.price>0?`<div class="ann-price-d">${fp(a.price)}</div>`:'<div style="color:var(--green);font-weight:600;font-size:.86rem;margin-top:6px">Gratuit</div>'}
+<a class="ann-ct" href="tel:${a.phone}">📞 Contacter</a>
+</div>`).join('');
+}
+
+function fAnn(t,btn){cAnn=t;document.querySelectorAll('.ann-filt .cat').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderAnns();}
+
+function openPostAnn(){
+  document.getElementById('ann-err').style.display='none';
+  ['an-title','an-desc','an-phone'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('an-price').value='0';
+  document.getElementById('ann-btn').textContent='Payer 300 DA et publier';
+  document.getElementById('ann-btn').disabled=false;
+  document.getElementById('ann-ov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeAnn(e){if(!e||e.target===document.getElementById('ann-ov')){document.getElementById('ann-ov').classList.remove('open');document.body.style.overflow='';}}
+
+async function submitAnn(){
+  const type=document.getElementById('an-type').value;
+  const animal=document.getElementById('an-animal').value;
+  const title=document.getElementById('an-title').value.trim();
+  const desc=document.getElementById('an-desc').value.trim();
+  const price=parseInt(document.getElementById('an-price').value)||0;
+  const wilaya=document.getElementById('an-wilaya').value;
+  const phone=document.getElementById('an-phone').value.trim();
+  const err=document.getElementById('ann-err');
+  const btn=document.getElementById('ann-btn');
+  if(!title){err.textContent='Entrez un titre.';err.style.display='block';return;}
+  if(!desc){err.textContent='Entrez une description.';err.style.display='block';return;}
+  if(!phone||phone.length<9){err.textContent='Numéro invalide.';err.style.display='block';return;}
+  err.style.display='none';
+  const ann={id:Date.now(),type,animal,title,desc,price,wilaya,phone,date:Date.now(),pending:true};
+  const all=getAnns();all.unshift(ann);saveAnns(all);
+  btn.textContent='Redirection...';btn.disabled=true;
+  try{
+    const r=await fetch('https://pay.chargily.net/test/api/v2/checkouts',{method:'POST',headers:{'Authorization':'Bearer '+SK,'Content-Type':'application/json'},body:JSON.stringify({amount:300,currency:'dzd',payment_method:'edahabia',success_url:location.href+'?ok=1&mode=annonce&ann='+ann.id,failure_url:location.href+'?fail=1',description:'PetDZ Annonce: '+title,locale:'fr',metadata:{ann_id:ann.id,phone,title}})});
+    const d=await r.json();
+    if(d.checkout_url)location.href=d.checkout_url;
+    else{err.textContent='Erreur paiement.';err.style.display='block';btn.textContent='Payer 300 DA et publier';btn.disabled=false;}
+  }catch(e){err.textContent='Connexion échouée.';err.style.display='block';btn.textContent='Payer 300 DA et publier';btn.disabled=false;}
+}
+
+function exportAnnonces(){
+  const data=getAnns();
+  if(!data.length){alert('Aucune annonce à sauvegarder.');return;}
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='petdz_annonces_backup.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+setInterval(()=>{P.filter(p=>p.type==='flash'&&p.end).forEach(p=>{const el=document.getElementById('cd-'+p.id);if(el)el.textContent=fmt(p.end-Date.now());});},1000);
+
+async function loadProducts(){
+  try{
+    const r=await fetch('products.json?v='+Date.now());
+    const d=await r.json();
+    if(d.products&&d.products.length>0){
+      d.products.forEach(p=>{p.end=p.end_hours?Date.now()+p.end_hours*3600000:null;});
+      P.length=0;d.products.forEach(p=>P.push(p));
+    }
+  }catch(e){}
+  renderFlash();renderSale();
+}
+loadProducts();
+(function(){let s=0;const t=setInterval(()=>{s=Math.min(s+.4,P.length);document.getElementById('cnt').textContent=Math.floor(s);if(s>=P.length)clearInterval(t);},16);})();
+
+// ========== CONFIGURATION AIRTABLE ==========
+const AIRTABLE_TOKEN = 'pat55PsGRtR8iOyRB.e74c6efbb2754cb8798e5fa75a0d49ad0c8fbdcee6bc55a8b7c27048f593b08b';
+const AIRTABLE_BASE_ID = 'app7fCdY2gyIuL6Ls';
+const AIRTABLE_TABLE = 'Annonces';
+// ============================================
+
+window.addEventListener('load', () => {
+  const q = new URLSearchParams(location.search);
+  const mode = q.get('mode');
+  if (q.get('ok')) {
+    const msgs = {
+      product: 'Commande confirmée ! Vous serez contacté sous 24h.',
+      procuration: 'Demande reçue ! Nous vous contactons sur WhatsApp dans les 2h.',
+      premium: 'Bienvenue dans PetDZ Premium ! Ajout au groupe WhatsApp sous 24h.',
+      annonce: 'Annonce publiée avec succès !'
+    };
+    setTimeout(() => alert(msgs[mode] || msgs.product), 400);
+    
+    if (mode === 'annonce') {
+      const annId = parseInt(q.get('ann'));
+      const all = getAnns();
+      const idx = all.findIndex(a => a.id === annId);
+      if (idx > -1) {
+        all[idx].pending = false;
+        saveAnns(all);
+        
+        // === ENVOI À AIRTABLE ===
+        const ann = all[idx];
+        fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fields: {
+              id: ann.id,
+              type: ann.type,
+              animal: ann.animal,
+              title: ann.title,
+              desc: ann.desc,
+              price: ann.price,
+              wilaya: ann.wilaya,
+              phone: ann.phone,
+              date: new Date(ann.date).toISOString(),
+              pending: ann.pending
+            }
+          })
+        })
+        .then(res => {
+          if (res.ok) console.log('✅ Annonce envoyée à Airtable');
+          else console.error('❌ Erreur Airtable', res);
+        })
+        .catch(err => console.error(err));
+        // =========================
+      }
+      showPage('annonces');
+    }
+    history.replaceState({}, '', location.pathname);
+  }
+  if (q.get('fail')) {
+    setTimeout(() => alert('Paiement annulé.'), 400);
+    history.replaceState({}, '', location.pathname);
+  }
+});
+// ========== FIN CODE ==========
+</script>
+</body></html>
