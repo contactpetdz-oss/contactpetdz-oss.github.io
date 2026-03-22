@@ -76,38 +76,39 @@
 </footer>
 
 <script>
-  // Chargement produits (corrigé)
+  // Chargement produits (version finale corrigée)
   async function loadProducts() {
     const grid = document.getElementById('products-grid');
-    grid.innerHTML = '<p>Chargement...</p>';
+    grid.innerHTML = '<p>Chargement des promos...</p>';
 
     try {
       const res = await fetch('/products.json');
-      if (!res.ok) throw new Error('Erreur JSON');
+      if (!res.ok) throw new Error('Erreur chargement JSON');
       const data = await res.json();
 
-      grid.innerHTML = '';
+      grid.innerHTML = ''; // vide tout
+
       data.products.forEach(p => {
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-          <img src="\( {p.img}" alt=" \){p.name}" style="width:100%;height:200px;object-fit:cover;">
+          <img src="\( {p.img || 'https://via.placeholder.com/300'}" alt=" \){p.name}" style="width:100%;height:200px;object-fit:cover;">
           <div style="padding:16px;">
             <h3>${p.name}</h3>
-            <p>${p.desc}</p>
-            <div style="color:#ff6b35;font-weight:bold;font-size:1.4rem;">${p.np || p.price} DA</div>
-            <a href="${p.link}" target="_blank" class="btn">Voir l'offre</a>
+            <p>${p.desc || ''}</p>
+            <div style="color:#ff6b35;font-weight:bold;font-size:1.4rem;">${p.np || p.price || 'Prix non indiqué'} DA</div>
+            <a href="${p.link || '#'}" target="_blank" class="btn" style="margin-top:12px;padding:10px;background:#ff6b35;color:white;text-align:center;border-radius:8px;text-decoration:none;">Voir l'offre</a>
           </div>
         `;
         grid.appendChild(card);
       });
     } catch (e) {
-      grid.innerHTML = '<p>Erreur chargement promos</p>';
-      console.error(e);
+      console.error('Erreur promos:', e);
+      grid.innerHTML = '<p>Erreur chargement promos (vérifiez products.json)</p>';
     }
   }
 
-  // Annonces (basique)
+  // Annonces (simple)
   async function renderAnns() {
     const list = document.getElementById('annonces-list');
     list.innerHTML = '<p>Chargement...</p>';
@@ -116,16 +117,22 @@
       const res = await fetch('/.netlify/functions/get-anns');
       const anns = res.ok ? await res.json() : [];
       list.innerHTML = anns.length ? anns.map(a => `
-        <div class="ann-item">
+        <div style="border:1px solid #ddd;padding:16px;margin:12px 0;border-radius:8px;background:white;">
           <strong>${a.title || 'Annonce'}</strong><br>
           ${a.desc || ''}<br>
           Prix : ${a.price || '?'} DA – ${a.wilaya || '?'}
         </div>
       `).join('') : '<p>Aucune annonce.</p>';
     } catch (e) {
-      list.innerHTML = '<p>Erreur annonces</p>';
+      list.innerHTML = '<p>Erreur chargement annonces</p>';
     }
   }
+
+  // Formulaire (temporaire)
+  document.getElementById('ann-form')?.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Paiement temporaire désactivé – nous réparons');
+  });
 
   // Lancement
   document.addEventListener('DOMContentLoaded', () => {
