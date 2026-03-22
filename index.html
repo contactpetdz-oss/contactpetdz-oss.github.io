@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PetDZ – Promos Animaux Algérie</title>
-  <meta name="description" content="Meilleures promos animaux en Algérie : croquettes, litière, jouets, transport. Paiement sécurisé Chargily.">
+  <meta name="description" content="Meilleures promos animaux en Algérie : croquettes, litière, jouets, transport – Temu & AliExpress">
 
   <style>
     :root {
       --primary: #ff6b35;
+      --primary-dark: #e55a2d;
       --dark: #222;
-      --light: #f8f9fa;
       --gray: #555;
+      --light: #f8f9fa;
     }
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
@@ -142,7 +143,7 @@
 <nav>
   <div class="logo">PetDZ</div>
   <div class="nav-links">
-    <a href="#promos">Promos</a>
+    <a href="#promos" class="active">Promos</a>
     <a href="#procuration">Procuration</a>
     <a href="#premium">Premium</a>
     <a href="#annonces">Annonces</a>
@@ -156,9 +157,7 @@
 
 <section id="promos">
   <h2>Promotions du jour</h2>
-  <div class="grid" id="products-grid">
-    <!-- Produits chargés ici -->
-  </div>
+  <div class="grid" id="products-grid"></div>
 </section>
 
 <section id="annonces" class="form-container">
@@ -166,4 +165,4 @@
   <form id="ann-form">
     <input type="text" id="title" placeholder="Titre" required>
     <textarea id="desc" placeholder="Description" required rows="4"></textarea>
-    <input type="number" id="price" placehol
+    <input type="number" id="price" placehold
