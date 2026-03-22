@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PetDZ – Meilleures promos animaux en Algérie, conseils vétérinaire, guides PDF, annonces payantes et achat par procuration sécurisé.">
-<title>PetDZ – Promos Animaux & Conseils Vétérinaire Algérie</title>
-<link rel="canonical" href="https://petdz.netlify.app">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetDZ – Promos Animaux Algérie</title>
+  <meta name="description" content="Meilleures promos animaux en Algérie : croquettes, litière, jouets, transport. Paiement sécurisé Chargily.">
 
-<style>
+  <style>
     :root {
       --primary: #ff6b35;
-      --primary-dark: #e55a2d;
       --dark: #222;
-      --gray: #555;
       --light: #f8f9fa;
+      --gray: #555;
     }
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, sans-serif;
       background: var(--light);
       color: var(--dark);
       line-height: 1.6;
@@ -25,13 +23,13 @@
     nav {
       position: sticky;
       top: 0;
-      z-index: 1000;
       background: white;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       padding: 12px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 1000;
     }
     .logo {
       font-size: 1.9rem;
@@ -46,20 +44,22 @@
     }
     .nav-links a.active {
       color: var(--primary);
-      font-weight: 700;
+      font-weight: bold;
     }
     header {
       background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-      padding: 60px 20px;
+      padding: 50px 20px;
       text-align: center;
     }
-    h1 { font-size: 2.6rem; margin-bottom: 12px; }
-    h2 { text-align: center; margin: 40px 0 20px; }
+    h1 { font-size: 2.5rem; margin-bottom: 12px; }
+    h2 { text-align: center; margin: 40px 0 20px; color: var(--dark); }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 24px;
       padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .card {
       background: white;
@@ -69,229 +69,101 @@
       transition: transform 0.2s;
     }
     .card:hover { transform: translateY(-6px); }
-    .card-img { width: 100%; height: 200px; object-fit: cover; }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 16px;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+    }
+    .card p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .price {
+      color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .btn {
+      display: block;
+      padding: 10px;
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: #e55a2d;
+    }
     .form-container {
-      max-width: 620px;
+      max-width: 600px;
       margin: 40px auto;
       background: white;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
     input, textarea, select {
       width: 100%;
       padding: 12px;
       margin: 8px 0 16px;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 1rem;
     }
-    .btn {
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      font-size: 1.1rem;
+    .ann-item {
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin: 12px 0;
+      border-radius: 8px;
+      background: white;
     }
-    .btn-primary { background: var(--primary); color: white; }
-    .btn-primary:hover { background: var(--primary-dark); }
     footer {
       background: #222;
       color: white;
       text-align: center;
-      padding: 40px 20px;
-      margin-top: 80px;
+      padding: 30px 20px;
+      margin-top: 60px;
     }
-</style>
+  </style>
 </head>
 <body>
 
 <nav>
-<div class="logo">PetDZ</div>
-<div class="nav-links">
-<a href="#promos" class="active">Promos</a>
-<a href="#procuration">Procuration</a>
-<a href="#premium">Premium</a>
-<a href="#annonces">Annonces</a>
-</div>
+  <div class="logo">PetDZ</div>
+  <div class="nav-links">
+    <a href="#promos">Promos</a>
+    <a href="#procuration">Procuration</a>
+    <a href="#premium">Premium</a>
+    <a href="#annonces">Annonces</a>
+  </div>
 </nav>
 
 <header>
-<h1>Les meilleures promos animaux réunies ici</h1>
-<p>Ventes flash, conseils vétérinaire, guides PDF, annonces sécurisées et achat par procuration.</p>
+  <h1>Les meilleures promos animaux en Algérie</h1>
+  <p>Croquettes, litière, jouets, transport – offres Temu et AliExpress</p>
 </header>
 
 <section id="promos">
-<h2>Promotions du jour</h2>
-<div class="grid" id="products-grid"></div>
+  <h2>Promotions du jour</h2>
+  <div class="grid" id="products-grid">
+    <!-- Produits chargés ici -->
+  </div>
 </section>
 
 <section id="annonces" class="form-container">
-<h2>Publier une annonce (300 DA)</h2>
-<form id="ann-form">
-<div class="form-group">
-<label>Type</label>
-<select id="type" required>
-<option value="vente">Vente</option>
-<option value="adoption">Adoption</option>
-<option value="pension">Pension</option>
-</select>
-</div>
-<div class="form-group">
-<label>Animal</label>
-<select id="animal" required>
-<option value="chien">Chien</option>
-<option value="chat">Chat</option>
-</select>
-</div>
-<div class="form-group">
-<label>Titre</label>
-<input type="text" id="title" required>
-</div>
-<div class="form-group">
-<label>Description</label>
-<textarea id="desc" rows="5" required></textarea>
-</div>
-<div class="form-group">
-<label>Prix (DA)</label>
-<input type="number" id="price" required>
-</div>
-<div class="form-group">
-<label>Wilaya</label>
-<input type="text" id="wilaya" required>
-</div>
-<div class="form-group">
-<label>Téléphone</label>
-<input type="tel" id="phone" required>
-</div>
-<button type="submit" class="btn btn-primary">Payer 300 DA et publier</button>
-</form>
-
-<h3 style="margin-top: 40px;">Annonces récentes</h3>
-<div id="annonces-list"></div>
-</section>
-
-<footer>
-<p>© 2026 PetDZ – Conseils vétérinaire & promos animaux en Algérie</p>
-<p>WhatsApp : +213 552 64 60 20</p>
-</footer>
-
-<script>
-  // 1. Chargement promos (inchangé)
-  async function loadProducts() {
-    try {
-      const res = await fetch('products.json');
-      const data = await res.json();
-      const grid = document.getElementById('products-grid');
-      grid.innerHTML = data.products.map(p => `
-<div class="card">
-<img class="card-img" src="\( {p.img || 'https://via.placeholder.com/300x200'}" alt=" \){p.name}">
-<div style="padding:20px;">
-<h3>${p.name}</h3>
-<p>${p.desc || ''}</p>
-<strong style="color:var(--primary);font-size:1.4rem;">${p.price} DA</strong>
-<a href="${p.link}" target="_blank" class="btn btn-primary" style="margin-top:12px;display:block;text-align:center;">Voir l'offre</a>
-</div>
-</div>
-      `).join('');
-    } catch (e) {
-      console.error('Erreur promos:', e);
-    }
-  }
-
-  // 2. Chargement + affichage annonces depuis Airtable
-  async function getAnns() {
-    try {
-      const res = await fetch('/.netlify/functions/get-anns');
-      return res.ok ? await res.json() : [];
-    } catch (e) {
-      console.error(e);
-      return [];
-    }
-  }
-
-  async function renderAnns() {
-    const list = document.getElementById('annonces-list');
-    if (!list) return;
-    const anns = await getAnns();
-    list.innerHTML = anns.length ? anns.map(a => `
-<div style="border:1px solid #ddd;padding:16px;margin:12px 0;border-radius:8px;background:white;">
-<strong>${a.title || 'Sans titre'}</strong><br>
-<small>${a.type} • ${a.animal} • ${a.wilaya} • ${a.price} DA</small><br>
-<p>${a.desc || ''}</p>
-<small>Contact : ${a.phone} • ${new Date(a.date).toLocaleDateString('fr-DZ')}</small>
-</div>
-    `).join('') : '<p>Aucune annonce pour le moment.</p>';
-  }
-
-  // 3. Paiement sécurisé via Netlify Function (clé cachée)
-  async function createCheckout() {
-    const formData = {
-      amount: 300,
-      description: 'Publication annonce PetDZ',
-      success_url: window.location.href + '#success',
-      failure_url: window.location.href + '#error'
-    };
-
-    try {
-      const res = await fetch('/.netlify/functions/create-checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.error || 'Erreur Chargily');
-      }
-
-      const data = await res.json();
-      return data.checkout_url;
-    } catch (e) {
-      alert('Erreur création paiement : ' + e.message);
-      return null;
-    }
-  }
-
-  // 4. Soumission formulaire → paiement
-  document.getElementById('ann-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const title  = document.getElementById('title').value.trim();
-    const desc   = document.getElementById('desc').value.trim();
-    const price  = parseFloat(document.getElementById('price').value);
-    const wilaya = document.getElementById('wilaya').value.trim();
-    const phone  = document.getElementById('phone').value.trim();
-
-    if (!title || !desc || !price || !wilaya || !phone) {
-      alert('Tous les champs sont obligatoires');
-      return;
-    }
-
-    const checkoutUrl = await createCheckout();
-    if (checkoutUrl) {
-      window.location.href = checkoutUrl;
-    }
-  });
-
-  // 5. Retour après paiement
-  if (window.location.hash === '#success') {
-    alert('Paiement confirmé ! Annonce publiée.');
-    renderAnns();
-    history.replaceState(null, null, window.location.pathname);
-  } else if (window.location.hash === '#error') {
-    alert('Paiement annulé ou échoué.');
-    history.replaceState(null, null, window.location.pathname);
-  }
-
-  // Init
-  document.addEventListener('DOMContentLoaded', () => {
-    loadProducts();
-    renderAnns();
-  });
-</script>
-
-</body>
-</html>
+  <h2>Publier une annonce (300 DA)</h2>
+  <form id="ann-form">
+    <input type="text" id="title" placeholder="Titre" required>
+    <textarea id="desc" placeholder="Description" required rows="4"></textarea>
+    <input type="number" id="price" placehol
