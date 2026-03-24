@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetDZ – Promos Animaux Algérie</title>
+  <meta name="description" content="Meilleures promos animaux en Algérie : croquettes, jouets, antiparasitaires, accessoires">
+
+  <style>
+    :root { --primary: #ff6b35; --dark: #222; --light: #f8f9fa; --gray: #555; }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: system-ui, sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+    nav { position: sticky; top: 0; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+    .logo { font-size: 1.9rem; font-weight: bold; color: var(--primary); }
+    .nav-links a { margin-left: 20px; color: var(--gray); text-decoration: none; font-weight: 500; }
+    .nav-links a.active { color: var(--primary); font-weight: bold; }
+
+    header { background: linear-gradient(135deg, #fff3e0, #ffe0b2); padding: 50px 20px; text-align: center; }
+    h1 { font-size: 2.4rem; margin-bottom: 12px; }
+    h2 { text-align: center; margin: 40px 0 20px; color: var(--dark); }
+
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+      gap: 24px; 
+      padding: 20px; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+    }
+    .card { 
+      background: white; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-body { padding: 16px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.25rem; }
+    .price { color: var(--primary); font-size: 1.4rem; font-weight: bold; }
+
+    .btn { 
+      display: block; 
+      padding: 10px; 
+      background: var(--primary); 
+      color: white; 
+      text-align: center; 
+      border-radius: 8px; 
+      text-decoration: none; 
+      margin-top: 12px; 
+      font-weight: 600; 
+    }
+
+    .form-container { 
+      max-width: 600px; 
+      margin: 40px auto; 
+      background: white; 
+      padding: 30px; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+    }
+    input, textarea, select { 
+      width: 100%; 
+      padding: 12px; 
+      margin: 8px 0 16px; 
+      border: 1px solid #ddd; 
+      border-radius: 6px; 
+    }
+
+    footer { 
+      background: #222; 
+      color: white; 
+      text-align: center; 
+      padding: 30px 20px; 
+      margin-top: 60px; 
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PetDZ</div>
+  <div class="nav-links">
+    <a href="#promos" class="active">Promos</a>
+    <a href="#annonces">Annonces</a>
+  </div>
+</nav>
+
+<header>
+  <h1>Les meilleures promos animaux en Algérie</h1>
+  <p>Croquettes, jouets, antiparasitaires, accessoires – Temu & AliExpress</p>
+</header>
+
+<section id="promos">
+  <h2>Promotions du jour</h2>
+  <div class="grid" id="products-grid"></div>
+</section>
+
+<section id="annonces" class="form-container">
+  <h2>Publier une annonce (300 DA)</h2>
+  <form id="ann-form">
+    <input type="text" id="title" placeholder="Titre" required>
+    <textarea id="desc" placeholder="Description" required rows="4"></textarea>
+    <input type="number" id="price" placeholder="Prix (DA)" required>
+    <input type="text" id="wilaya" placeholder="Wilaya" required>
+    <input type="tel" id="phone" placeholder="Téléphone" required>
+    <button type="submit" class="btn">Payer 300 DA et publier</button>
+  </form>
+
+  <h3>Annonces récentes</h3>
+  <div id="annonces-list"></div>
+</section>
+
+<footer>
+  <p>© 2026 PetDZ – Promos et services animaux en Algérie</p>
+</footer>
+
+<script>
+  // Chargement produits
+  async function loadProducts() {
+    const grid = document.getElementById('products-grid');
+    grid.innerHTML = '<p>Chargement des promos...</p>';
+
+    try {
+      const res = await fetch('/products.json');
+      if (!res.ok) throw new Error('Erreur JSON');
+      const data = await res.json();
+
+      grid.innerHTML = '';
+      data.products.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="\( {p.img}" alt=" \){p.name}" style="width:100%;height:200px;object-fit:cover;">
+          <div class="card-body">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <div class="price">${p.price} DA</div>
+            <a href="${p.link}" target="_blank" class="btn">Voir l'offre</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    } catch (e) {
+      console.error('Erreur promos:', e);
+      grid.innerHTML = '<p>Erreur chargement promos</p>';
+    }
+  }
+
+  // Chargement annonces
+  async function renderAnns() {
+    const list = document.getElementById('annonces-list');
+    list.innerHTML = '<p>Chargement...</p>';
+
+    try {
+      const res = await fetch('/.netlify/functions/get-anns');
+      const anns = res.ok ? await res.json() : [];
+      list.innerHTML = anns.length ? anns.map(a => `
+        <div class="ann-item" style="border:1px solid #ddd;padding:16px;margin:12px 0;border-radius:8px;background:white;">
+          <strong>${a.title || 'Annonce'}</strong><br>
+          ${a.desc || ''}<br>
+          Prix : ${a.price || '?'} DA – ${a.wilaya || '?'}
+        </div>
+      `).join('') : '<p>Aucune annonce.</p>';
+    } catch (e) {
+      list.innerHTML = '<p>Erreur chargement annonces</p>';
+    }
+  }
+
+  // Initialisation
+  document.addEventListener('DOMContentLoaded', () => {
+    loadProducts();
+    renderAnns();
+  });
+</script>
+
+</body>
+</html>
