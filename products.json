@@ -1,0 +1,28 @@
+{
+  "products": [
+    {"id":1,"category":"alimentation","name":"Royal Canin Medium Adult 15kg","desc":"Croquettes premium chiens","img":"https://images.unsplash.com/photo-1561948955-570b270e7c36?w=600","price":4200,"link":"https://www.temu.com"},
+    {"id":2,"category":"alimentation","name":"Purina Pro Plan Saumon 10kg","desc":"Croquettes chats saumon","img":"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600","price":3600,"link":"https://www.temu.com"},
+    {"id":3,"category":"alimentation","name":"Whiskas Pouch Saumon x12","desc":"Sachets repas chats","img":"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600","price":1100,"link":"https://www.temu.com"},
+    {"id":4,"category":"alimentation","name":"Hill's Science Plan 10kg","desc":"Croquettes agneau chiens","img":"https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600","price":3850,"link":"https://www.temu.com"},
+
+    {"id":5,"category":"jouets","name":"Jouet Corde Tressée","desc":"Jouet corde résistant","img":"https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=600","price":650,"link":"https://www.temu.com"},
+    {"id":6,"category":"jouets","name":"Balle Lumineuse Interactive","desc":"Balle rebondissante","img":"https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=600","price":890,"link":"https://www.temu.com"},
+    {"id":7,"category":"jouets","name":"Souris Plume Chat","desc":"Jouet interactif plume","img":"https://images.unsplash.com/photo-1604541880909-3e9c4a0c4c0a?w=600","price":450,"link":"https://www.temu.com"},
+    {"id":8,"category":"jouets","name":"Tunnel de Jeu Chat","desc":"Tunnel pliable","img":"https://images.unsplash.com/photo-1604541880909-3e9c4a0c4c0a?w=600","price":1200,"link":"https://www.temu.com"},
+
+    {"id":9,"category":"antiparasitaires","name":"Frontline Combo Chat","desc":"Pipettes antipuces chats","img":"https://images.unsplash.com/photo-1589927986089-35812388aa0b?w=600","price":1850,"link":"https://www.temu.com"},
+    {"id":10,"category":"antiparasitaires","name":"Advantage Chien 10-25kg","desc":"Traitement antipuces chiens","img":"https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600","price":1650,"link":"https://www.temu.com"},
+    {"id":11,"category":"antiparasitaires","name":"Seresto Collier Chien","desc":"Collier 8 mois protection","img":"https://images.unsplash.com/photo-1589927986089-35812388aa0b?w=600","price":3200,"link":"https://www.temu.com"},
+    {"id":12,"category":"antiparasitaires","name":"Effipro Spot-On Chat","desc":"Pipettes antipuces chats","img":"https://images.unsplash.com/photo-1589927986089-35812388aa0b?w=600","price":1350,"link":"https://www.temu.com"},
+
+    {"id":13,"category":"accessoires","name":"Collier GPS Anti-Fugue","desc":"Collier avec localisation","img":"https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600","price":4200,"link":"https://www.temu.com"},
+    {"id":14,"category":"accessoires","name":"Harnais Confort Chien","desc":"Harnais respirant","img":"https://images.unsplash.com/photo-1604541880909-3e9c4a0c4c0a?w=600","price":1250,"link":"https://www.temu.com"},
+    {"id":15,"category":"accessoires","name":"Gamelle Anti-Glouton","desc":"Gamelle ralentisseur","img":"https://images.unsplash.com/photo-1589927986089-35812388aa0b?w=600","price":850,"link":"https://www.temu.com"},
+    {"id":16,"category":"accessoires","name":"Fontaine à Eau Chat 2L","desc":"Fontaine automatique","img":"https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?w=600","price":1450,"link":"https://www.temu.com"},
+
+    {"id":17,"category":"hygiene-transport","name":"Litière Agglomérante 10L","desc":"Litière avec contrôle odeurs","img":"https://images.unsplash.com/photo-1589927986089-35812388aa0b?w=600","price":980,"link":"https://www.temu.com"},
+    {"id":18,"category":"hygiene-transport","name":"Shampoing Antipuces Chien","desc":"Shampoing doux","img":"https://images.unsplash.com/photo-1589927986089-35812388aa0b?w=600","price":750,"link":"https://www.temu.com"},
+    {"id":19,"category":"hygiene-transport","name":"Cage Transport Taille M","desc":"Cage robuste pour chiens","img":"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600","price":2900,"link":"https://www.temu.com"},
+    {"id":20,"category":"hygiene-transport","name":"Brosse Anti-Poils Chat","desc":"Brosse démêlante","img":"https://images.unsplash.com/photo-1604541880909-3e9c4a0c4c0a?w=600","price":650,"link":"https://www.temu.com"}
+  ]
+}
